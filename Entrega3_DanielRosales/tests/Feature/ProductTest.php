@@ -79,6 +79,12 @@ class ProductTest extends TestCase
                 "title",
                 "type"]
         ]);
+	    
+	$response->assertJsonFragment([
+            'ID' => 'ERROR-1',
+            'title' =>  'Unprocessable Entity',
+            'code'=>  '422'
+        ]);
     }
     /**     * CREATE-3     */
     /** @test */
@@ -104,6 +110,12 @@ class ProductTest extends TestCase
                 "code",
                 "title",
                 "type"]
+        ]);
+	    
+	    $response->assertJsonFragment([
+	    'ID' => 'ERROR-1',
+	    'title' =>  'Unprocessable Entity',
+	    'code'=>  '422'
         ]);
     }
     /**     * CREATE-4     */
@@ -132,6 +144,12 @@ class ProductTest extends TestCase
                 "title",
                 "type"]
         ]);
+	    
+	    $response->assertJsonFragment([
+            'ID' => 'ERROR-1',
+            'title' =>  'Unprocessable Entity',
+            'code'=>  '422'
+        ]);
     }
     /**     * CREATE-5     */
     /** @test */
@@ -158,6 +176,11 @@ class ProductTest extends TestCase
                 "code",
                 "title",
                 "type"]
+        ]);
+	    $response->assertJsonFragment([
+            'ID' => 'ERROR-1',
+            'title' =>  'Unprocessable Entity',
+            'code'=>  '422'
         ]);
     }
 	/*------------------------CREATE----------------------*/
@@ -196,6 +219,12 @@ class ProductTest extends TestCase
                 "title",
                 "type"]
         ]);
+	    
+	    $response->assertJsonFragment([
+            'ID' => 'ERROR-2',
+            'title' =>  'Not Found',
+            'code'=>  '404'
+        ]);
     }
 	/*------------------------SHOW----------------------*/
 	
@@ -232,6 +261,11 @@ class ProductTest extends TestCase
             'id' => $id,
             'name' => $nombre,
             'price' => $precio
+        ]);
+	     $response->assertJsonFragment([
+            'ID' => 'ERROR-2',
+            'title' =>  'Not Found',
+            'code'=>  '404'
         ]);
     }
 	/*------------------------DELETE----------------------*/
@@ -311,6 +345,11 @@ class ProductTest extends TestCase
                 'price' => $precio
             ]
         );
+	    $response->assertJsonFragment([
+            'ID' => 'ERROR-1',
+            'title' =>  'Unprocessable Entity',
+            'code'=>  '422'
+        ]);
     }
     /**     * UPDATE-3     */
     /** @test */
@@ -346,6 +385,11 @@ class ProductTest extends TestCase
                 'price' => $precio
             ]
         );
+	    $response->assertJsonFragment([
+            'ID' => 'ERROR-1',
+            'title' =>  'Unprocessable Entity',
+            'code'=>  '422'
+        ]);
     }
     /**     * UPDATE-4     */
     /** @test */
@@ -367,6 +411,11 @@ class ProductTest extends TestCase
                 "code",
                 "title",
                 "type"]
+        ]);
+	     $response->assertJsonFragment([
+            'ID' => 'ERROR-2',
+            'title' =>  'Not Found',
+            'code'=>  '404'
         ]);
     }
 	/*------------------------UPDATE----------------------*/
